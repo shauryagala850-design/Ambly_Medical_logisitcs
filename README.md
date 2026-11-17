@@ -74,10 +74,15 @@ Never copy the `service_role` / secret key anywhere; the app does not need it.
 
 1. Go to <https://vercel.com>, **Sign up with GitHub**.
 2. **Add New → Project**, pick the `Ambly_Medical_logisitcs` repository, and click **Import**.
-3. Open **Environment Variables** and add:
+3. Do **not** click "Add" next to the Supabase integration; that creates a separate database.
+4. Click **Deploy**. The first version shows a "not yet connected" page until the keys are added.
+5. In the project, open **Environment Variables** (left sidebar). Choose type **Config**, tick
+   Production and Preview, and add:
    - `NEXT_PUBLIC_SUPABASE_URL` = the Project URL
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = the anon / publishable key
-4. Click **Deploy**. After a minute or two Vercel shows your live link.
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = the publishable key (`sb_publishable_…`)
+   The `NEXT_PUBLIC_` prefix is a Next.js naming rule; both values are safe to be public.
+6. Deploy again so the keys are picked up: **Deployments → ⋯ (top right) → Create Deployment**
+   with the branch name, or push any commit to the branch.
 
 ### 5. First login
 
